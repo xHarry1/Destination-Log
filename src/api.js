@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://destination-log-backend.onrender.com"; 
 
 export const createItinerary = async (data) => {
   try {
@@ -11,7 +11,8 @@ export const createItinerary = async (data) => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to create itinerary");
+      const errorMessage = await response.text();
+      throw new Error(`Failed to create itinerary: ${errorMessage}`);
     }
 
     return await response.json();
@@ -24,6 +25,11 @@ export const createItinerary = async (data) => {
 export const fetchItineraries = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/info/all`);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch itineraries");
+    }
+
     return await response.json();
   } catch (error) {
     console.error("Error fetching itineraries:", error);
