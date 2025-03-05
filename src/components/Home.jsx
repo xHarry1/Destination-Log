@@ -90,7 +90,6 @@ const Home = () => {
                 <div className="w-full bg-gray-800 p-6 rounded-lg shadow-lg">
                     <h2 className="text-xl font-bold text-white mb-4">Your Destinations</h2>
 
-                    {/* Google Map Section */}
                     <div className="mt-4">
                         <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
                             <GoogleMap mapContainerStyle={containerStyle} center={mapCenter} zoom={12}>
