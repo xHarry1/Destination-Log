@@ -7,7 +7,8 @@ export default defineConfig({
   base: '/Destination-Log/', // Ensure this matches your repo name
 
   server: {
-    host: '0.0.0.0', // Allow external access (important for Render)
-    port: process.env.PORT || 3000, // Use Render's assigned port or default to 3000
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000,
+    allowedHosts: ['destination-log.onrender.com'], // Allow Render frontend host
   }
 });
