@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://destination-log-backend.onrender.com"; 
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://destination-log-backend.onrender.com";
 
 export const createItinerary = async (data) => {
   try {
