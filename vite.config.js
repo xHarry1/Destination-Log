@@ -12,8 +12,10 @@ export default defineConfig(({ mode }) => {
       host: '0.0.0.0',
       port: process.env.PORT || 3000,
       strictPort: true,
-      allowedHosts: ['.onrender.com', 'destination-log.onrender.com'], // Explicitly allow Render host
-      cors: true,
+      cors: true, // Enable CORS in case it was blocking requests
+      hmr: {
+        clientPort: 443, // Ensures WebSocket connections work on Render
+      },
     },
     preview: {
       host: '0.0.0.0',
